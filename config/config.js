@@ -9,7 +9,7 @@ var config = {
       name: 'warzonebackend'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/warzonebackend-development'
+    db: 'mongodb://localhost/warfare-development'
   },
 
   test: {
@@ -18,7 +18,7 @@ var config = {
       name: 'warzonebackend'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/warzonebackend-test'
+    db: 'mongodb://localhost/warfare-test'
   },
 
   production: {
@@ -27,7 +27,7 @@ var config = {
       name: 'warzonebackend'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/warzonebackend-production'
+    db: 'mongodb://localhost/warfare-production'
   }
 };
 
