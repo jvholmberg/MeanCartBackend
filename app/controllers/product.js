@@ -1,37 +1,38 @@
 var express = require('express'),
 	router = express.Router(),
 	mongoose = require('mongoose'),
-	CategoryModel = mongoose.model('Category');
+	ProductModel = mongoose.model('Product');
 
 module.exports = function(app) {
-	app.use('/category', router);
+	app.use('/product', router);
 };
 
-/* Create new Category
+/* Create new Product
 ==============================================================================*/
 router.route('/create')
 	.post(function(req, res) {
 		console.log(req.body);
-		var category = new CategoryModel(req.body);
-		category.save(function(err) {
+		var product = new ProductModel(req.body);
+		product.save(function(err) {
 			if (err) return next(err);
-			res.send(category);
+			res.send(product);
 		});
 	});
 
-/* Update Category
+/* Update Product
 ==============================================================================*/
 router.route('/update')
 	.post(function(req, res) {
 		console.log(req.body);
-		CategoryModel.findById(req.body._id, function(err, category) {
+		ProductModel.findById(req.body._id, function(err, product) {
 			if (err) return next(err);
-			for (var property in category) {
+			for (var property in product) {
 				if (req.body.hasOwnProperty(property) && property !== '_id') {
-					category[property] = req.body[property];
+					product[property] = req.body[property];
 				}
 			}
-			category.save(function(err, data) {
+			console.log(product);
+			product.save(function(err, data) {
 				res.send(data);
 			});
 		});
@@ -41,18 +42,18 @@ router.route('/update')
 router.route('/all')
 	.post(function(req, res) {
 		console.log(req.body);
-		var category = CategoryModel.find(function(err, categories, count) {
+		var product = ProductModel.find(function(err, categories, count) {
 			res.send(categories);
 		});
 	});
 
-/* Delete Category
+/* Delete Product
 ==============================================================================*/
 router.route('/delete')
 	.post(function(req, res) {
 		console.log(req.body);
-		CategoryModel.findById(req.body._id).remove(function(err, category, count) {
+		ProductModel.findById(req.body._id).remove(function(err, product, count) {
 			if (err) return next(err);
-			res.send(category);
+			res.send(product);
 		});
 	});
