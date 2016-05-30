@@ -20,6 +20,13 @@ models.forEach(function (model) {
 
 var app = express();
 
+// Enable CORS
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 require('./config/express')(app, config);
 
 app.listen(config.port, function () {

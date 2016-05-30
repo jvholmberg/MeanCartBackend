@@ -6,28 +6,28 @@ var config = {
   development: {
     root: rootPath,
     app: {
-      name: 'warzonebackend'
+      name: 'meancart'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/warfare-development'
+    db: 'mongodb://localhost/mean-cart'
   },
 
   test: {
     root: rootPath,
     app: {
-      name: 'warzonebackend'
+      name: 'meancart'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/warfare-test'
+    db: 'mongodb://localhost/mean-cart'
   },
 
   production: {
     root: rootPath,
     app: {
-      name: 'warzonebackend'
+      name: 'meancart'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/warfare-production'
+    db: 'mongodb://localhost/mean-cart'
   }
 };
 
